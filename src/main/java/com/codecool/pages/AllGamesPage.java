@@ -42,31 +42,31 @@ public class AllGamesPage extends BasePage{
     @FindBy(id = ":rg2:")
     private WebElement ratingField;
 
-    @FindBy(xpath = "//tbody[@class='MuiTableBody-root']//tr[1]//a")
+    @FindBy(xpath = "//tbody[@class='MuiTypography-root']//tr[1]//a")
     private WebElement firstResultLink;
 
     public void clickOnAdvancedSearch() {
-        advancedSearchButton.click();
+        wait.until(ExpectedConditions.visibilityOf(advancedSearchButton)).click();
     }
 
     public void fillGameField(String input) {
-        gameField.sendKeys(input);
+        wait.until(ExpectedConditions.visibilityOf(gameField)).sendKeys(input);
     }
 
     public void fillMinPlayerField(String input) {
-        minPlayerField.sendKeys(input);
+        wait.until(ExpectedConditions.visibilityOf(minPlayerField)).sendKeys(input);
     }
 
     public void fillMaxPlayerField(String input) {
-        maxPlayerField.sendKeys(input);
+        wait.until(ExpectedConditions.visibilityOf(maxPlayerField)).sendKeys(input);
     }
 
     public void fillDescriptionField(String input) {
-        descriptionField.sendKeys(input);
+        wait.until(ExpectedConditions.visibilityOf(descriptionField)).sendKeys(input);
     }
 
     public void openPublisherDropdown() {
-        publisherDropdown.click();
+        wait.until(ExpectedConditions.visibilityOf(publisherDropdown)).click();
     }
 
     public void selectOption(String optionText) {
@@ -84,15 +84,15 @@ public class AllGamesPage extends BasePage{
     }
 
     public void openCategoryDropdown() {
-        categoryDropdown.click();
+        wait.until(ExpectedConditions.visibilityOf(categoryDropdown)).click();
     }
 
     public void fillRatingField(String input) {
-        ratingField.sendKeys(input);
+        wait.until(ExpectedConditions.visibilityOf(ratingField)).sendKeys(input);
     }
 
     public void clickFirstResultLink() {
-        firstResultLink.click();
+        wait.until(ExpectedConditions.visibilityOf(firstResultLink)).click();
     }
 
     public String getFirstResultLinkText() {

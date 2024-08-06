@@ -4,13 +4,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
 public class RegisterPage extends BasePage{
 
-    public RegisterPage(WebDriver webDriver) {
-        super(webDriver);
-        PageFactory.initElements(webDriver, this);
+    public RegisterPage(WebDriver driver) {
+        super(driver);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(xpath = "//a[@href='/register']")
@@ -34,31 +36,28 @@ public class RegisterPage extends BasePage{
     @FindBy(id = "cancel")
     private WebElement cancelButton;
 
-    public void clickRegisterOnBasePage() {
-        registerButtonOnBasePage.click();
-    }
 
     public void fillUsernameField(String username) {
-        usernameField.sendKeys(username);
+        wait.until(ExpectedConditions.visibilityOf(usernameField)).sendKeys(username);
     }
 
     public void fillEmailField(String email) {
-        emailField.sendKeys(email);
+        wait.until(ExpectedConditions.visibilityOf(emailField)).sendKeys(email);
     }
 
     public void fillPasswordField(String password) {
-        passwordField.sendKeys(password);
+        wait.until(ExpectedConditions.visibilityOf(passwordField)).sendKeys(password);
     }
 
     public void clickShowPasswordCheckbox() {
-        showPasswordCheckbox.click();
+        wait.until(ExpectedConditions.visibilityOf(showPasswordCheckbox)).click();
     }
 
     public void clickRegister() {
-        registerButton.click();
+        wait.until(ExpectedConditions.visibilityOf(registerButton)).click();
     }
 
     public void clickCancel() {
-        cancelButton.click();
+        wait.until(ExpectedConditions.visibilityOf(cancelButton)).click();
     }
 }
