@@ -15,12 +15,11 @@ public abstract class BasePage {
     protected WebElement homeButton;
 
     @FindBy(xpath = "//a[@href='/games']")
-    protected WebElement allGamesButton;
-
+    public WebElement allGamesButton;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
     }
 

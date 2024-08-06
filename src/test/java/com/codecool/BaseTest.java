@@ -11,6 +11,11 @@ public abstract class BaseTest {
     protected final String BASE_URL = "http://localhost:3456/";
     protected LoginPage loginPage;
 
+    public void openNewDriver() {
+        webDriver = new FirefoxDriver();
+        webDriver.get(BASE_URL);
+    }
+
     public void openNewDriver(String urlFromRoot) {
         webDriver = new FirefoxDriver();
         webDriver.get(BASE_URL + urlFromRoot);
@@ -23,7 +28,7 @@ public abstract class BaseTest {
         loginPage.clickLogIn();
     }
 
-    public void closeDriver() {
+    public void quitDriver() {
         webDriver.quit();
     }
 }

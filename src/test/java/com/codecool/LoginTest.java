@@ -35,6 +35,6 @@ public class LoginTest extends BaseTest {
 
     @AfterEach
     public void postcondition() {
-        closeDriver();
+        quitDriver();
     }
 }
