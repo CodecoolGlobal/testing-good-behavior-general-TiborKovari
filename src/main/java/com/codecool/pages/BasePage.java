@@ -1,8 +1,11 @@
 package com.codecool.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
+import java.util.NoSuchElementException;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -21,6 +24,15 @@ public abstract class BasePage {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
+    }
+
+    public boolean isElementPresent(WebElement webElement) {
+        try {
+            wait.until(ExpectedConditions.visibilityOf(webElement));
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
     }
 
     public void clickHome(){
