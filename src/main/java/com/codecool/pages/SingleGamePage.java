@@ -9,23 +9,23 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.time.Duration;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 public class SingleGamePage extends BasePage {
 
     @FindBy(xpath = "//button[@type='button' and text()='Add to favorites']")
     private WebElement addToFavoritesBtn;
 
+    @FindBy(xpath = "//h4[text()='Board game added to your favorites!']")
+    private WebElement favoritesMessage;
+
     @FindBy(xpath = "//button[@type='button' and text()='Submit']")
     private WebElement submitBtn;
 
-    //<h4>Thank you for your rating!</h4>
     @FindBy(xpath = "//h4[text()='Thank you for your rating!']")
-    private WebElement reviewMessage;
+    private WebElement ratingMessage;
 
-    @FindBy(id = "panel1a-header")
+    @FindBy(xpath = "//h6[text()='Write Review']")
     private WebElement writeReviewDropdown;
 
     @FindBy(xpath = "//input[@id='description' and @type='text']")
@@ -34,7 +34,7 @@ public class SingleGamePage extends BasePage {
     @FindBy(xpath = "//button[@type='submit' and text()='Add review']")
     private WebElement addReviewBtn;
 
-    @FindBy(id = "panel1a-header")
+    @FindBy(xpath = "//h3[text()='Reviews']")
     private WebElement allReviewsDropdown;
 
     public SingleGamePage(WebDriver driver) {
@@ -46,7 +46,11 @@ public class SingleGamePage extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(addToFavoritesBtn)).click();
     }
 
-    public boolean submitReviewByValue(double value) throws InterruptedException {
+    public boolean validateFavoriteAddingSuccess() {
+        return isElementPresent(favoritesMessage);
+    }
+
+    public boolean submitRatingByValue(double value) throws InterruptedException {
         if (value < 0 || value > 10) throw new RatingValueOutOfRangeException();
 
         By starContainerBy = By.xpath(".//span[@class='MuiRating-root MuiRating-sizeMedium css-1i1gfbe']");
@@ -76,11 +80,22 @@ public class SingleGamePage extends BasePage {
         Thread.sleep(2000);
         submitBtn.click();
 
-        return validateReviewSuccess();
+        return validateRatingSuccess();
     }
 
-    private boolean validateReviewSuccess() {
-        return isElementPresent(reviewMessage);
+    private boolean validateRatingSuccess() {
+        return isElementPresent(ratingMessage);
+    }
+
+    public boolean validateReviewSuccess(String text, String author) {
+        List<WebElement> reviews = driver.findElements(By.xpath(".//div[@class='MuiAccordionDetails-root css-u7qq7e']"));
+        List<WebElement> reviewList = reviews.get(3).findElements(By.xpath(".//div"));
+        for (WebElement review : reviewList) {
+            String reviewText = review.findElement(By.xpath(".//h6")).getText();
+            String reviewAuthor = review.findElement(By.xpath(".//p")).getText().replaceFirst("Review by: ", "");;
+            if (reviewText.equals(text) && reviewAuthor.equals(author)) return true;
+        }
+        return false;
     }
 
     public void clickOnWriteReviewDropdown() {
