@@ -3,8 +3,8 @@ package com.codecool.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -13,9 +13,9 @@ import java.util.List;
 
 public class AllGamesPage extends BasePage{
 
-    public AllGamesPage(WebDriver webDriver) {
-        super(webDriver);
-        PageFactory.initElements(webDriver, this);
+    public AllGamesPage(WebDriver driver) {
+        super(driver);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(xpath = "//button[contains(text(), 'Advanced search')]")
@@ -42,6 +42,9 @@ public class AllGamesPage extends BasePage{
     @FindBy(id = ":rg2:")
     private WebElement ratingField;
 
+    @FindBy(xpath = "//tbody[@class='MuiTableBody-root']//tr[1]//a")
+    private WebElement firstResultLink;
+
     public void clickOnAdvancedSearch() {
         advancedSearchButton.click();
     }
@@ -67,10 +70,10 @@ public class AllGamesPage extends BasePage{
     }
 
     public void selectOption(String optionText) {
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@role='listbox']")));
 
-        List<WebElement> options = webDriver.findElements(By.xpath("//ul[@role='listbox']//li"));
+        List<WebElement> options = driver.findElements(By.xpath("//ul[@role='listbox']//li"));
 
         for (WebElement option : options) {
             if (option.getText().equals(optionText)) {
@@ -87,9 +90,6 @@ public class AllGamesPage extends BasePage{
     public void fillRatingField(String input) {
         ratingField.sendKeys(input);
     }
-
-    @FindBy(xpath = "//tbody[@class='MuiTableBody-root']//tr[1]//a")
-    private WebElement firstResultLink;
 
     public void clickFirstResultLink() {
         firstResultLink.click();
