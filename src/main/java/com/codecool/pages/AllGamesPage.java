@@ -42,7 +42,7 @@ public class AllGamesPage extends BasePage{
     @FindBy(id = ":rg2:")
     private WebElement ratingField;
 
-    @FindBy(xpath = "//tbody[@class='MuiTableBody-root']//tr[1]//a")
+    @FindBy(xpath = "//tbody[@class='MuiTypography-root']//tr[1]//a")
     private WebElement firstResultLink;
 
     public void clickOnAdvancedSearch() {
