@@ -1,4 +1,4 @@
-package com.codecool;
+package com.codecool.devtests;
 import com.codecool.pages.HomePage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

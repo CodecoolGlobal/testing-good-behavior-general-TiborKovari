@@ -1,4 +1,4 @@
-package com.codecool;
+package com.codecool.devtests;
 
 import com.codecool.pages.SingleGamePage;
 import org.junit.jupiter.api.AfterEach;

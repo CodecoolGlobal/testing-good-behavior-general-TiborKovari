@@ -1,4 +1,4 @@
-package com.codecool;
+package com.codecool.devtests;
 
 import com.codecool.pages.LoginPage;
 import com.codecool.pages.RegisterPage;
