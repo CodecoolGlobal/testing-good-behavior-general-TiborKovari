@@ -21,16 +21,18 @@ public class AllGamesPage extends BasePage{
     @FindBy(xpath = "//button[contains(text(), 'Advanced search')]")
     private WebElement advancedSearchButton;
 
-    @FindBy(id = ":rfs:")
+    @FindBy(xpath = "(//input[@type='text' and contains(@class, 'MuiInputBase-input')])[1]")
     private WebElement gameField;
 
-    @FindBy(id = ":rft:")
+    // Updated locator for the min player field
+    @FindBy(xpath = "(//input[@type='number' and contains(@class, 'MuiInputBase-input')])[1]")
     private WebElement minPlayerField;
 
-    @FindBy(id = ":rfu:")
+    // Updated locator for the max player field
+    @FindBy(xpath = "(//input[@type='number' and contains(@class, 'MuiInputBase-input')])[2]")
     private WebElement maxPlayerField;
 
-    @FindBy(id = ":rfv:")
+    @FindBy(xpath = "(//input[@type='text' and contains(@class, 'MuiInputBase-input')])[2]")
     private WebElement descriptionField;
 
     @FindBy(id = "select-publisher")
@@ -39,7 +41,7 @@ public class AllGamesPage extends BasePage{
     @FindBy(id = "select-category")
     private WebElement categoryDropdown;
 
-    @FindBy(id = ":rg2:")
+    @FindBy(xpath = "(//input[@type='number' and contains(@class, 'MuiInputBase-input')])[3]")
     private WebElement ratingField;
 
     @FindBy(xpath = "//tbody[@class='MuiTypography-root']//tr[1]//a")
@@ -93,6 +95,11 @@ public class AllGamesPage extends BasePage{
 
     public void clickFirstResultLink() {
         wait.until(ExpectedConditions.visibilityOf(firstResultLink)).click();
+    }
+
+    public void clickOnExactGameLink(String boardGameName) {
+        WebElement boardNameLink = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(), '" + boardGameName + "')]")));
+        boardNameLink.click();
     }
 
     public String getFirstResultLinkText() {
