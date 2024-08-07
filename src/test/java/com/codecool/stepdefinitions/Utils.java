@@ -28,19 +28,23 @@ public abstract class Utils {
         webDriver.quit();
     }
 
-    public String registerUser(String username, String email, String password) {
+    public void registerUser(String username, String email, String password) {
         RegisterPage registerPage;
         registerPage = new RegisterPage(webDriver);
         registerPage.fillUsernameField(username);
         registerPage.fillEmailField(email);
         registerPage.fillPasswordField(password);
         registerPage.clickRegister();
+    }
+
+    public String getAlertMessage() {
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
         alert = wait.until(ExpectedConditions.alertIsPresent());
         String alertMessage = alert.getText();
         alert.accept();
         return alertMessage;
     }
+
     public boolean validateRegistrationSuccess(String alertMessage) {
         return SUCCESSFUL_REGISTRATION_MESSAGE.equals(alertMessage);
     }
