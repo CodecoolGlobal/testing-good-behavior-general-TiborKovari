@@ -15,11 +15,6 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-java</artifactId>
-      <version>4.22.0</version>
-    </dependency>
-    <dependency>
       <groupId>org.junit.platform</groupId>
       <artifactId>junit-platform-engine</artifactId>
       <version>1.11.0-M1</version>
@@ -33,11 +28,18 @@
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-java</artifactId>
       <version>7.18.0</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-junit</artifactId>
-      <version>7.18.1</version>
+      <version>7.18.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>4.22.0</version>
     </dependency>
   </dependencies>
 </project>
