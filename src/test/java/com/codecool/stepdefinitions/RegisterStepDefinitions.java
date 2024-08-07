@@ -11,11 +11,11 @@ import static org.junit.Assert.*;
 
 public class RegisterStepDefinitions extends Utils{
 
-    private final String validUsername = "test6";
-    private final String validEmail = "test6@test.com";
+    private final String validUsername = "test7";
+    private final String validEmail = "test7@test.com";
     private final String validPassword = "Test1234";
     private final String inValidUsername = "";
-    private final String inValidEmail = "test6test.com";
+    private final String inValidEmail = "test7test.com";
     private final String inValidPassword = "test1234";
     private String popupMessage;
 
@@ -34,6 +34,7 @@ public class RegisterStepDefinitions extends Utils{
     public void the_user_should_be_registered_successfully_and_redirected_to_the_home_page() {
         assertTrue(validateRegistrationSuccess(popupMessage));
         assertEquals(BASE_URL, webDriver.getCurrentUrl());
+        quitDriver();
     }
 
     @When("the user enters invalid registration details and confirms the popup by clicking")
@@ -44,5 +45,6 @@ public class RegisterStepDefinitions extends Utils{
     @Then("the user shouldn't be registered successfully")
     public void the_user_shouldn_t_be_registered_successfully() {
         assertNotEquals(BASE_URL, webDriver.getCurrentUrl());
+        quitDriver();
     }
 }
