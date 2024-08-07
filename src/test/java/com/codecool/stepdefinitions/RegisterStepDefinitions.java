@@ -7,8 +7,7 @@ import io.github.cdimascio.dotenv.Dotenv;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class RegisterStepDefinitions extends Utils{
 
@@ -27,7 +26,8 @@ public class RegisterStepDefinitions extends Utils{
 
     @When("the user enters valid registration details and confirms the popup by clicking")
     public void the_user_enters_valid_registration_details_and_confirms_the_popup_by_clicking() {
-        popupMessage = registerUser(validUsername, validEmail, validPassword);
+        registerUser(validUsername, validEmail, validPassword);
+        popupMessage = getAlertMessage();
     }
 
     @Then("the user should be registered successfully and redirected to the home page")
@@ -43,7 +43,6 @@ public class RegisterStepDefinitions extends Utils{
 
     @Then("the user shouldn't be registered successfully")
     public void the_user_shouldn_t_be_registered_successfully() {
-        assertTrue(validateRegistrationSuccess(popupMessage));
-        assertEquals(BASE_URL, webDriver.getCurrentUrl());
+        assertNotEquals(BASE_URL, webDriver.getCurrentUrl());
     }
 }
