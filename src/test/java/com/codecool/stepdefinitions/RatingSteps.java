@@ -1,6 +1,5 @@
 package com.codecool.stepdefinitions;
 
-import com.codecool.pages.AllGamesPage;
 import com.codecool.pages.SingleGamePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
