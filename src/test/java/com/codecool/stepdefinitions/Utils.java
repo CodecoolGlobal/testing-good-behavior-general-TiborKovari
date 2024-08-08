@@ -3,6 +3,7 @@ package com.codecool.stepdefinitions;
 import com.codecool.pages.*;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -16,7 +17,8 @@ public abstract class Utils {
     protected final String BASE_URL = "http://localhost:3456/";
     protected final String SUCCESSFUL_REGISTRATION_MESSAGE = "Thank you for registering to our website!";
     private RegisterPage registerPage;
-
+    private LoginPage loginPage;
+    private HomePage homePage;
 
     public void openNewDriver() {
         webDriver = new FirefoxDriver();
@@ -32,6 +34,8 @@ public abstract class Utils {
 
     public void registerUser(String username, String email, String password) {
         registerPage = new RegisterPage(webDriver);
+        homePage = new HomePage(webDriver);
+        homePage.clickRegisterButton();
         registerPage.fillUsernameField(username);
         registerPage.fillEmailField(email);
         registerPage.fillPasswordField(password);
@@ -40,10 +44,14 @@ public abstract class Utils {
 
     public String getAlertMessage() {
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
-        alert = wait.until(ExpectedConditions.alertIsPresent());
-        String alertMessage = alert.getText();
-        alert.accept();
-        return alertMessage;
+        try {
+            Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+            String alertMessage = alert.getText();
+            alert.accept();
+            return alertMessage;
+        } catch (TimeoutException e) {
+            return "No alert present";
+        }
     }
 
     public boolean validateRegistrationSuccess(String alertMessage) {
@@ -51,8 +59,9 @@ public abstract class Utils {
     }
 
     public void loginUser(String email, String password) {
-        LoginPage loginPage;
         loginPage = new LoginPage(webDriver);
+        homePage = new HomePage(webDriver);
+        homePage.clickLoginButton();
         loginPage.fillEmailField(email);
         loginPage.fillPasswordField(password);
         loginPage.clickLogIn();
