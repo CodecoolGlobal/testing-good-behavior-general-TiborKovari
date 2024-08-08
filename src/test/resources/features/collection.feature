@@ -7,4 +7,4 @@ Feature: Collection
 
     Examples:
       | registeredEmail  | password  | username   | game                                |
-      | test18@test.com  | Test1234  | test18     | Twilight Imperium: Fourth Edition   |
+      | test30@test.com  | Test1234  | test30     | Twilight Imperium: Fourth Edition   |

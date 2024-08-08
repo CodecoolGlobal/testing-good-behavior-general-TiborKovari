@@ -7,7 +7,7 @@ Feature: Registration
 
     Examples:
       | Username | Email             | Password |
-      | test19   | test19@test.com   | Test1234        |
+      | test30   | test30@test.com   | Test1234        |
 
 
     Scenario Outline: Unsuccessful registration with invalid credentials
