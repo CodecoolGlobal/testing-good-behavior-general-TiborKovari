@@ -10,4 +10,4 @@ Feature: Review Board Games
 
     Examples:
       | email                 | username  | password      | game              | review        |
-      | ramsay6123@test.com   | ramsay61  | RamsayTest01  | A Feast for Odin  | Test review   |
+      | AutoTest@test.com     | AutoTest  | AutoTest0123  | A Feast for Odin  | Test review   |
