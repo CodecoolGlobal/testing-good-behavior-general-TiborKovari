@@ -68,7 +68,9 @@ EOF
 
 unset PGPASSWORD
 
+echo "Every has been wiped successfully!"
+
 PSQL_COMMAND="PGPASSWORD=$DB_PASSWORD psql -U $DB_USER -h $DB_HOST -p $DB_PORT -d $DB_NAME"
 docker exec -i $container bash -c "$PSQL_COMMAND < /docker-entrypoint-initdb.d/import.sql"
 
-
+echo "Database got initialized with default data successfully!"

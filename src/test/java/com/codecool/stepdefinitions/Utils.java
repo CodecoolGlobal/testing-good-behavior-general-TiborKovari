@@ -9,6 +9,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.time.Duration;
 
 public abstract class Utils {
@@ -104,6 +107,27 @@ public abstract class Utils {
         HomeLoggedInPage homeLoggedInPage;
         homeLoggedInPage = new HomeLoggedInPage(webDriver);
         homeLoggedInPage.clickAllGamesButton();
+    }
+
+    public void executeDatabaseSetupScript() {
+        try {
+            String[] cmd = {"/bin/sh", "setupdb.sh"};
+            Process process = Runtime.getRuntime().exec(cmd);
+            // Optionally, read the output of the script
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+            int exitVal = process.waitFor();
+            if (exitVal == 0) {
+                System.out.println("Script executed successfully.");
+            } else {
+                System.err.println("Script execution failed with exit value: " + exitVal);
+            }
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }
