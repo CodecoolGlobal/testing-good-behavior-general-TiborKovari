@@ -14,6 +14,7 @@ public class RatingSteps extends Utils {
 
     @Given("The user is logged in with {string} {string} {string} and is on the chosen board game's {string} page")
     public void the_user_is_logged_in_and_is_on_the_chosen_board_games_page(String email, String username, String password, String game) throws InterruptedException {
+        executeDatabaseSetupScript();
         openNewDriver();
         registerUser(username, email, password);
         getAlertMessage();

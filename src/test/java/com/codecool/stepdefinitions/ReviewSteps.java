@@ -13,6 +13,7 @@ public class ReviewSteps extends Utils {
 
     @Given("I am logged in as a user {string} {string} {string} and I am on the chosen {string} board game's page")
     public void the_user_is_logged_in_and_is_on_the_chosen_board_games_page(String email, String username, String password, String game) throws InterruptedException {
+        executeDatabaseSetupScript();
         openNewDriver();
         registerUser(username, email, password);
         getAlertMessage();

@@ -17,6 +17,7 @@ public class SearchSteps extends Utils {
 
     @Given("the user is on the all games page with {string} {string} {string}")
     public void the_user_is_on_the_all_games_page(String username, String email, String password) {
+        executeDatabaseSetupScript();
         openNewDriver();
         registerUser(username, email, password);
         String alertMessage = getAlertMessage();
