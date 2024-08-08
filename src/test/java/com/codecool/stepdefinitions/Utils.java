@@ -3,6 +3,7 @@ package com.codecool.stepdefinitions;
 import com.codecool.pages.*;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -40,10 +41,14 @@ public abstract class Utils {
 
     public String getAlertMessage() {
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
-        alert = wait.until(ExpectedConditions.alertIsPresent());
-        String alertMessage = alert.getText();
-        alert.accept();
-        return alertMessage;
+        try {
+            Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+            String alertMessage = alert.getText();
+            alert.accept();
+            return alertMessage;
+        } catch (TimeoutException e) {
+            return "No alert present";
+        }
     }
 
     public boolean validateRegistrationSuccess(String alertMessage) {
