@@ -20,18 +20,21 @@ import java.time.Duration;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 
-
 public class SearchSteps extends Utils {
     private AllGamesPage allGamesPage;
     private HomeLoggedInPage homeLoggedInPage;
     private HomePage homePage;
-    private final String username = "mmmmmmmaaakkkmmarcci";
-    private final String email = "mmmmmmmaaakkkmmarcci@jojo.com";
-    private final String password = "Jojo8888";
-    private final String gameName = "Twilight Imperium: Fourth Edition";
+    private String username;
+    private String email;
+    private String password;
+    private String gameName;
 
-    @Given("the user is on the all games page")
-    public void the_user_is_on_the_all_games_page() {
+    @Given("the user is on the all games page with {string} {string} {string}")
+    public void the_user_is_on_the_all_games_page(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+
         openNewDriver("register");
         registerUser(username, email, password);
         String alertMessage = getAlertMessage();
@@ -58,8 +61,9 @@ public class SearchSteps extends Utils {
         allGamesPage.clickOnAdvancedSearch();
     }
 
-    @When("the user fills in the game input with valid game name")
-    public void the_user_fills_in_the_game_input_with_valid_game_name() {
+    @When("the user fills in the game input with valid game name {string}")
+    public void the_user_fills_in_the_game_input_with_valid_game_name(String gameName) {
+        this.gameName = gameName;
         allGamesPage.fillGameField(gameName);
     }
 
