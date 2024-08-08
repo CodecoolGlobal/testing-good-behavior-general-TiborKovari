@@ -12,7 +12,7 @@ public class RegisterStepDefinitions extends Utils{
 
     @Given("user is on the registration page")
     public void user_is_on_the_registration_page() {
-       openNewDriver("register");
+       openNewDriver();
     }
 
     @When("user enters {string}, {string} and {string} and confirms the popup by clicking")
