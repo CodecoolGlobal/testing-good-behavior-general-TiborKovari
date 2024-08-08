@@ -42,8 +42,8 @@ public class AllGamesPage extends BasePage{
     @FindBy(xpath = "(//input[@type='number' and contains(@class, 'MuiInputBase-input')])[3]")
     private WebElement ratingField;
 
-    @FindBy(xpath = "//tbody[@class='MuiTypography-root']//tr[1]//a")
-    private WebElement firstResultLink;
+    @FindBy(xpath = "//tbody[@class='MuiTableBody-root css-1xnox0e']//tr[1]//th[1]//a")
+    private WebElement firstBoardGameLink;
 
     public void clickOnAdvancedSearch() {
         wait.until(ExpectedConditions.visibilityOf(advancedSearchButton)).click();
@@ -92,7 +92,7 @@ public class AllGamesPage extends BasePage{
     }
 
     public void clickFirstResultLink() {
-        wait.until(ExpectedConditions.visibilityOf(firstResultLink)).click();
+        wait.until(ExpectedConditions.visibilityOf(firstBoardGameLink)).click();
     }
 
     public void clickOnExactGameLink(String boardGameName) {
@@ -101,6 +101,16 @@ public class AllGamesPage extends BasePage{
     }
 
     public String getFirstResultLinkText() {
-        return firstResultLink.getText();
+        return firstBoardGameLink.getText();
+    }
+
+    public boolean isGameNamePresent(String gameName) {
+        List<WebElement> rows = driver.findElements(By.xpath("//tbody//tr"));
+        for (WebElement row : rows) {
+            if (row.getText().contains(gameName)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

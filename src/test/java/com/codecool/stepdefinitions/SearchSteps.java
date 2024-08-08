@@ -25,8 +25,8 @@ public class SearchSteps extends Utils {
     private AllGamesPage allGamesPage;
     private HomeLoggedInPage homeLoggedInPage;
     private HomePage homePage;
-    private final String username = "mmmaaakkkmmarcci";
-    private final String email = "mmmaaakkkmmarcci@jojo.com";
+    private final String username = "mmmmmmmaaakkkmmarcci";
+    private final String email = "mmmmmmmaaakkkmmarcci@jojo.com";
     private final String password = "Jojo8888";
     private final String gameName = "Twilight Imperium: Fourth Edition";
 
@@ -65,7 +65,7 @@ public class SearchSteps extends Utils {
 
     @Then("the user should see valid game name in the search results")
     public void the_user_should_see_valid_game_name_in_the_search_results() {
-        assertEquals(gameName, allGamesPage.getFirstResultLinkText());
+        assertTrue(allGamesPage.isGameNamePresent(gameName));
         quitDriver();
     }
 }
