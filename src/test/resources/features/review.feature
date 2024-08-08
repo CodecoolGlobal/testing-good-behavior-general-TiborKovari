@@ -9,5 +9,5 @@ Feature: Review Board Games
     Then I and other users should be able to see it "<review>" "<username>" where reviews are shown
 
     Examples:
-      | email               | username  | password      | game              | review        |
-      | AutoTest@test.com   | AutoTest  | AutoTest0123  | A Feast for Odin  | Test review   |
+      | email                 | username  | password      | game              | review        |
+      | ramsay6123@test.com   | ramsay61  | RamsayTest01  | A Feast for Odin  | Test review   |
