@@ -24,11 +24,9 @@ public class AllGamesPage extends BasePage{
     @FindBy(xpath = "(//input[@type='text' and contains(@class, 'MuiInputBase-input')])[1]")
     private WebElement gameField;
 
-    // Updated locator for the min player field
     @FindBy(xpath = "(//input[@type='number' and contains(@class, 'MuiInputBase-input')])[1]")
     private WebElement minPlayerField;
 
-    // Updated locator for the max player field
     @FindBy(xpath = "(//input[@type='number' and contains(@class, 'MuiInputBase-input')])[2]")
     private WebElement maxPlayerField;
 

@@ -15,6 +15,8 @@ public abstract class Utils {
     protected Alert alert;
     protected final String BASE_URL = "http://localhost:3456/";
     protected final String SUCCESSFUL_REGISTRATION_MESSAGE = "Thank you for registering to our website!";
+    private RegisterPage registerPage;
+
 
     public void openNewDriver() {
         webDriver = new FirefoxDriver();
@@ -29,7 +31,6 @@ public abstract class Utils {
     }
 
     public void registerUser(String username, String email, String password) {
-        RegisterPage registerPage;
         registerPage = new RegisterPage(webDriver);
         registerPage.fillUsernameField(username);
         registerPage.fillEmailField(email);

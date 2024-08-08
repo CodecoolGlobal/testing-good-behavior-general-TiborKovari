@@ -8,8 +8,8 @@ import static org.junit.Assert.*;
 
 public class RegisterStepDefinitions extends Utils{
 
-    private final String validUsername = "test7";
-    private final String validEmail = "test7@test.com";
+    private final String validUsername = "test21";
+    private final String validEmail = "test21@test.com";
     private final String validPassword = "Test1234";
     private final String inValidUsername = "";
     private final String inValidEmail = "test7test.com";
