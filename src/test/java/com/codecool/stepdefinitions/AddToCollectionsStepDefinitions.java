@@ -11,6 +11,7 @@ public class AddToCollectionsStepDefinitions extends Utils{
 
     @Given("user is logged in with {string} and {string} as {string} and is on the all games page")
     public void user_is_logged_in_and_is_on_the_all_games_page (String email, String password, String username) {
+        executeDatabaseSetupScript();
         openNewDriver();
         registerUser(username, email, password);
         getAlertMessage();
