@@ -4,10 +4,10 @@ Feature: Rating Board Games
   So I can contribute to the average rating of a board game which other users can see
 
   Scenario Outline: Successful rating addition
-    Given The user is logged in and is on the chosen board game's page
+    Given The user is logged in with "<email>" "<username>" "<password>" and is on the chosen board game's "<game>" page
     When The user rates the board game to <value> stars by clicking and submits it by clicking on the submit button
     Then The selected rating is saved and cannot be changed
 
     Examples:
-      | value |
-      |  2.5  |
+      | email               | username  | password      | game              | value |
+      | AutoTest@test.com   | AutoTest  | AutoTest0123  | A Feast for Odin  | 2.5   |
