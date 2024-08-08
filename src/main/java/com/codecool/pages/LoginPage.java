@@ -22,9 +22,6 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//a[@href='/' and text()='Cancel']")
     private WebElement cancelBtn;
 
-    @FindBy(xpath = "//a[@href='/register' and text()='Register']")
-    private WebElement registerRedirectBtn;
-
     public LoginPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
@@ -48,10 +45,6 @@ public class LoginPage extends BasePage {
 
     public void clickCancel() {
         wait.until(ExpectedConditions.visibilityOf(cancelBtn)).click();
-    }
-
-    public void clickRegisterRedirect() {
-        wait.until(ExpectedConditions.visibilityOf(registerRedirectBtn)).click();
     }
 
 }

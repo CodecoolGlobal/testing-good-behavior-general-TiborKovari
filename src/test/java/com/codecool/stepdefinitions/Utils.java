@@ -100,10 +100,6 @@ public abstract class Utils {
         return favoritesPage.isGameNamePresent(boardName);
     }
 
-    public boolean validateLogInSuccess() {
-        return webDriver.getCurrentUrl().equals(BASE_URL); // TODO: assert to welcome message OR dropdown at the top
-    }
-
     public void clickOnAllGamesButton() {
         HomeLoggedInPage homeLoggedInPage;
         homeLoggedInPage = new HomeLoggedInPage(webDriver);

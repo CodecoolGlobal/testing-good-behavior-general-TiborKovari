@@ -6,5 +6,5 @@ Feature: Collection
       Then user should see the chosen "<game>" in user's collections
 
     Examples:
-      | email  | password  | username   | game                                |
+      | email            | password  | username   | game                                |
       | test34@test.com  | Test1234  | test34     | Twilight Imperium: Fourth Edition   |

@@ -2,7 +2,6 @@ package com.codecool.stepdefinitions;
 
 import com.codecool.pages.AllGamesPage;
 import com.codecool.pages.HomeLoggedInPage;
-import com.codecool.pages.HomePage;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
@@ -14,7 +13,6 @@ import static org.junit.Assert.assertTrue;
 public class SearchSteps extends Utils {
     private AllGamesPage allGamesPage;
     private HomeLoggedInPage homeLoggedInPage;
-    private HomePage homePage;
     private String gameName;
 
     @Given("the user is on the all games page with {string} {string} {string}")
@@ -28,9 +26,10 @@ public class SearchSteps extends Utils {
 
         loginUser(email, password);
 
-        homeLoggedInPage = new HomeLoggedInPage(webDriver);
         By welcomeMessageLocator = By.xpath("//b[text()='" + username + "']");
         waitForElementVisibility(welcomeMessageLocator);
+
+        homeLoggedInPage = new HomeLoggedInPage(webDriver);
         homeLoggedInPage.clickAllGamesButton();
         allGamesPage = new AllGamesPage(webDriver);
     }

@@ -7,5 +7,5 @@ Feature: Search
     Then the user should see valid game name in the search results
 
     Examples:
-      | username   | email                | password | gameName                           |
-      | okoko | okoko@jojo.com  | Jojo8888 | Twilight Imperium: Fourth Edition  |
+      | username    | email                | password   | gameName                           |
+      | okoko       | okoko@jojo.com       | Jojo8888   | Twilight Imperium: Fourth Edition  |

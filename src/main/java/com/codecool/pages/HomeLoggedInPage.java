@@ -18,6 +18,7 @@ public class HomeLoggedInPage extends HomePage{
 
     public HomeLoggedInPage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
 
     public void clickWelcomeDropdownButton(){
