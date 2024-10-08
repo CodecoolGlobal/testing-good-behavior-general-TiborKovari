@@ -46,7 +46,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![SUT Screenshot][sut-screenshot]]
+[![SUT][SUT-Screenshot]][sut-screenshot]
 
 This project consists of automated tests using Page Factory design pattern, Selenium and BDD approach for a web application which is BoardgameGeek inspired.
 Users can search for board games, register themselves securely, add a board game to their virtual collection and rate/review any chosen board game.
@@ -61,15 +61,15 @@ Users can search for board games, register themselves securely, add a board game
 This section lists any major technologies used in this project. We also mention certain approaches or design patterns which are important for automated tests.
 
 - **Technologies**
-    * ![Java][java]
-    * ![JUnit][junit]
-    * ![Selenium][selenium]
-        * ![Selenium Webdriver][selenium-webdriver]
-    * ![Cucumber][cucumber]
+    * [![Java][java]][java-url]
+    * [![JUnit][junit]][junit-url]
+    * [![Selenium][selenium]][selenium-url]
+        *  [![Selenium Webdriver][selenium-webdriver]][selenium-webdriver-url]
+    * [![Cucumber][cucumber]][cucumber-url]
 - **Design patterns, approaches and others**
-    * ![PageFactory][page-factory]
-    * ![Bdd][bdd]
-        * ![!Gherkin][gherkin]
+    * [![PageFactory][page-factory]][pagefactory-url]
+    * [![Bdd][bdd]][bdd-url]
+        * [![!Gherkin][gherkin]][gherkin-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -80,19 +80,40 @@ This section lists any major technologies used in this project. We also mention 
 
 ### Prerequisites
 
-<p align="center">
-    Get the System Under Testing and install it. You will find a guide in the sut's repository about it.
-    <br />
-    <a href="https://github.com/IPHUN1989/bytebattlers" target="_blank"><strong>Explore the SUT »</strong></a>
-</p>
+Before you begin, make sure you have the following installed:
+
+1. **Java Development Kit (JDK) 11+**
+    - This project is written in Java, so you'll need to have at least JDK 11 installed.
+    - [Download Java](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
+
+2. **Apache Maven**
+    - Maven is required for managing the project's dependencies and building the project.
+    - [Install Maven](https://maven.apache.org/install.html)
+
+3. **IntelliJ IDEA**
+    - We recommend using IntelliJ IDEA as the development environment for this project. You can use either the **Ultimate** or **Community** edition.
+    - Make sure to install the following plugins:
+        - **Maven** (this should be pre-configured for most Java projects in IntelliJ)
+        - **Cucumber for Java** plugin for running BDD tests.
+    - [Download IntelliJ IDEA](https://www.jetbrains.com/idea/download/)
+
+4. **Selenium WebDriver**
+    - Selenium WebDriver is required to run automated browser tests. Maven will handle the dependency, but ensure you have the correct WebDriver (e.g., ChromeDriver) installed for your browser.
+    - [Download WebDriver](https://www.selenium.dev/documentation/webdriver/getting_started/install_drivers/)
+
+5. **Git**
+    - Git is needed to clone the repository and manage version control.
+    - [Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+
+6. **System Under Testing (SUT)**
+    - You will need to set up the System Under Testing (SUT) that this project will test. Instructions for installing and setting up the SUT can be found in its repository:
+    - [SUT repository](https://github.com/IPHUN1989/bytebattlers)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
 1. Clone the repo
    ```sh
@@ -112,7 +133,7 @@ _It is located in the `src/test/java/com/codecool/` folder_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
+[![Example][Example-test-result]][example-test-result]
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -147,10 +168,19 @@ Don't forget to give the project a star! Thanks again!
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [sut-screenshot]: src/test/resources/screenshots/homepage.png
 [java]: https://img.shields.io/badge/java-%23ED8B00?style=for-the-badge&logoColor=%23ED8B00&labelColor=white&color=%23ED8B00&link=https%3A%2F%2Fwww.java.com%2Fen%2F
+[java-url]: https://www.java.com/en/
 [junit]: https://img.shields.io/badge/junit_5-%2325A162?style=for-the-badge&logo=junit5&logoColor=%2325A162&labelColor=white&color=%2325A162&link=https%3A%2F%2Fjunit.org%2Fjunit5%2F
+[junit-url]: https://junit.org/junit5/
 [selenium]: https://img.shields.io/badge/selenium-43B02A?style=for-the-badge&logo=selenium&logoColor=%2343B02A&labelColor=white&color=%2343B02A&link=https%3A%2F%2Fwww.selenium.dev%2F
+[selenium-url]: https://www.selenium.dev/
 [selenium-webdriver]: https://img.shields.io/badge/selenium_webdriver-43B02A?style=for-the-badge&logo=selenium&logoColor=%23c8102e&labelColor=white&color=%23c8102e&link=https%3A%2F%2Fwww.selenium.dev%2F
+[selenium-webdriver-url]: https://www.selenium.dev/documentation/webdriver/
 [cucumber]: https://img.shields.io/badge/cucumber-23D96C?style=for-the-badge&logo=cucumber&logoColor=white&labelColor=23D96C&color=23D96C&link=https%3A%2F%2Fcucumber.io%2F
+[cucumber-url]: https://cucumber.io/
 [page-factory]: https://img.shields.io/badge/Page_Factory-000000?style=for-the-badge&logo=&logoColor=white
+[pagefactory-url]: https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/support/PageFactory.html
 [bdd]: https://img.shields.io/badge/Behaviour_Driven_Development_(BDD)-000000?style=for-the-badge&logo=&logoColor=white
+[bdd-url]: https://cucumber.io/docs/bdd/
 [gherkin]: https://img.shields.io/badge/Gherkin-000000?style=for-the-badge&logo=&logoColor=white
+[gherkin-url]: https://cucumber.io/docs/gherkin/reference/
+[example-test-result]: src/test/resources/screenshots/test_result.png
